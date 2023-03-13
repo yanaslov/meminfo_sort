@@ -3,9 +3,7 @@
 
 #include <string>
 #include <string_view>
-
 #include <iostream>
-
 
 class MemInfoEntry{
 	std::string line_;
@@ -44,9 +42,5 @@ inline bool operator<(const MemInfoEntry& l,const MemInfoEntry& r){
 		return l.units > r.units;
 	return l.memsize > r.memsize;
 }
-
-
-
-
 
 #endif /* MEMINFOENTRY_HPP_ */

@@ -1,5 +1,4 @@
 #include "MemInfoEntry.hpp"
-
 #include <charconv>
 
 using namespace std;

@@ -6,7 +6,6 @@ BINDIR = bin
 OBJS = $(addprefix $(BINDIR)/,$(addsuffix .o,$(SRC)))
 DEPS = $(addprefix $(BINDIR)/,$(addsuffix .d,$(SRC)))
 
-#CROSS_COMPILE=arm-linux-gnueabihf-
 CC=$(CROSS_COMPILE)gcc
 CXX=$(CROSS_COMPILE)g++
 LD=$(CROSS_COMPILE)g++
@@ -20,7 +19,6 @@ LDFLAGS = $(CXXFLAGS) -lm -lrt -lpthread
 $(shell mkdir -p $(BINDIR))
 
 .PHONY: all debug build clean 
-
 
 all: CFLAGS += -O3
 all: $(BINDIR) build
@@ -45,10 +43,6 @@ $(BINDIR)/%.cpp.d : %.cpp
 	$(CXX) $(CXXFLAGS) -MM -MT $(BINDIR)/$*.cpp.o -MT $(BINDIR)/$*.cpp.d -MF $@ $<
 
 clean:
-	rm $(OBJS) $(DEPS) $(APP) $(APP).map
+	rm -f $(OBJS) $(DEPS) $(BINDIR)/$(APP) $(BINDIR)/$(APP).map
 
 -include $(DEPS)
-
-
-
-
